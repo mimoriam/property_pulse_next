@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import React from 'react';
+import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: 'PropertyPulse',
@@ -15,6 +16,7 @@ export default function MainLayout({
   return (
     <html lang="en">
       <body>
+        <Navbar />
         <main>{children}</main>
       </body>
     </html>
