@@ -1,3 +1,6 @@
+npm i prettier eslint-config-standard eslint-plugin-tailwindcss eslint-config-prettier eslint-plugin-prettier
+npm i -D prettier-plugin-tailwindcss
+
 {
   "extends": [
     "next/core-web-vitals",
@@ -9,4 +12,8 @@
   "rules": {
     "prettier/prettier": ["error"]
   }
+}
+
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
