@@ -1,21 +1,8 @@
 import PropertyCard from '@/components/PropertyCard';
-
-async function fetchPropertiesFromAPI() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`);
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch data');
-    }
-
-    return await res.json();
-  } catch (err) {
-    console.error(err);
-  }
-}
+import { fetchAllProperties } from '@/utils/requests';
 
 export default async function PropertiesPage() {
-  const { properties } = await fetchPropertiesFromAPI();
+  const { properties } = await fetchAllProperties();
 
   // Sort properties by date
   // @ts-ignore
