@@ -2,6 +2,7 @@ import connectDB from '@/config/database';
 import { NextResponse } from 'next/server';
 import Property from '../../../models/Property';
 
+// GET /api/properties
 export const GET = async (request) => {
   try {
     await connectDB();
