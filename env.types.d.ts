@@ -4,11 +4,11 @@ declare global {
       NEXT_PUBLIC_DOMAIN: string;
       NEXT_PUBLIC_API_DOMAIN: string;
       MONGODB_URI: string;
-      GOOGLE_CLIENT_ID: string;
-      GOOGLE_CLIENT_SECRET: string;
+      GITHUB_CLIENT_ID: string;
+      GITHUB_CLIENT_SECRET: string;
       NEXTAUTH_URL: string;
       NEXTAUTH_URL_INTERNAL: string;
-      NEXTAUTH_SECRET: string;
+      AUTH_SECRET: string;
       CLOUDINARY_CLOUD_NAME: string;
       CLOUDINARY_API_KEY: string;
       CLOUDINARY_API_SECRET: string;
