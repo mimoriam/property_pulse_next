@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import authConfig from '@/auth.config';
 import connectDB from '@/config/database';
 import User from '@/models/User';
+import { getUserByEmail } from '@/utils/findOneUser';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
@@ -28,13 +29,25 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
 
     // Modifies the session object
-    async session({ session }) {
-      const user = await User.findOne({ email: session.user.email });
-
-      // Assign the user id to the session
-      session.user.id = user._id.toString();
+    async session({ token, session }) {
+      if (token.id && session.user) {
+        session.user.id = token.id.toString();
+      }
 
       return session;
+    },
+
+    async jwt({ token }) {
+      // If no token.sub, it means user is logged out
+      if (!token.sub) return token;
+
+      const existingUser = await getUserByEmail(token.email!.toString());
+
+      if (!existingUser) return token;
+
+      token.id = existingUser._id.toString();
+
+      return token;
     },
   },
   ...authConfig,
