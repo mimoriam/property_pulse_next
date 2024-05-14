@@ -4,7 +4,12 @@ import authConfig from '@/auth.config';
 
 const { auth } = NextAuth(authConfig);
 
-export const authRoutes = ['/properties/add'];
+export const authRoutes = [
+  '/properties/add',
+  '/profile',
+  '/properties/saved',
+  '/messages',
+];
 export const publicRoutes = ['/', '/properties'];
 export const apiAuthPrefix = '/api/auth';
 
