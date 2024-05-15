@@ -23,3 +23,4 @@ npm i react-spinners
 npm i mongodb mongoose
 npm i next-auth@beta
 npm i @auth/mongodb-adapter
+npm i cloudinary
