@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import authConfig from '@/auth.config';
 import connectDB from '@/config/database';
 import User from '@/models/User';
-import { getUserByEmail } from '@/utils/findOneUser';
+import { getUserByEmail } from '@/utils/getUser';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
